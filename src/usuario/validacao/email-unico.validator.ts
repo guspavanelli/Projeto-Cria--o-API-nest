@@ -16,7 +16,6 @@ export class emailUnicoValidator implements ValidatorConstraintInterface{
         return validarEmail;
     }    
 }
-//aaaaaaaaaaaaa
 //export de decorator, para uso do decorator basta usar o nome "EmailUnico"
 export const EmailUnico = (opcoesValidacao: ValidationOptions) => {
     return (objeto : Object, propriedade: string) => {
@@ -29,3 +28,6 @@ export const EmailUnico = (opcoesValidacao: ValidationOptions) => {
         })
     }
 }
+
+
+///testeeeeee
