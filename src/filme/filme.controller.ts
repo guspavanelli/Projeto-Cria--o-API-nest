@@ -96,7 +96,8 @@ export class FilmeController{
             filme => new ListaFilmeDTO(
                 filme.id,
                 filme.nome,
-                filme.email
+                filme.duracao,
+                filme.sinopse
             )
         );
 

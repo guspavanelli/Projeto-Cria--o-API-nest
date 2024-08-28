@@ -4,7 +4,7 @@
 import { IsEmail, IsNotEmpty, IsNumber, IsString, MinLength } from "class-validator";
 import { EmailUnico } from "../validacao/email-unico.validator";
 
-export class loginUsuarioDTO{
+export class loginFilmeDTO{
     
     @IsEmail(undefined, {message: "email inválido"})
     email: string;
