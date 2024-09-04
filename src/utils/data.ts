@@ -1,0 +1,16 @@
+export default class Datas{
+    constructor(){
+
+    }
+
+diferencaDias(data: Date){
+    var diff = data.getTime() - this.dataAtual() .getTime();
+
+    var daydiff = diff / (1000 * 60 * 60 * 24);
+    return daydiff
+}
+
+dataAtual(){
+    return new Date()
+}
+}

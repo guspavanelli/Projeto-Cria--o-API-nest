@@ -10,13 +10,16 @@ import { RetornoUsuarioDTO } from "./dto/retornoUsuario.dto";
 import { ListaUsuarioDTO } from "./dto/listaUsuario.dto";
 import { loginUsuarioDTO } from "./dto/loginUsuario.dto";
 import { alteraUsuarioDTO } from "./dto/alteraUsuario.dto";
+import Datas from "src/utils/data";
 
 //decorator responsável por definir que essa classe é um controller, dentro do parenteses é necessário informar o URL desse controller
 @Controller('/usuarios')
 export class UsuarioController{
+    objDatas : Datas;
     clsUsuariosArmazenados: any;
     //controller com injeção de dependencia da classe de usuários armazenados
     constructor(private Usuarios : UsuariosArmazenados){
+        this.objDatas = new Datas();
 
     }
 
@@ -40,7 +43,7 @@ export class UsuarioController{
         //criação do objeto de usuário, aqui é criado um objeto específico desse usuário 
         var novoUsuario = new UsuarioEntity(uuid(), dadosUsuario.nome, dadosUsuario.idade, 
                                             dadosUsuario.cidade, dadosUsuario.email,
-                                            dadosUsuario.telefone, dadosUsuario.senha
+                                            dadosUsuario.telefone, this.objDatas.dataAtual(),dadosUsuario.senha
         )
         //gravação do usuário, aqui é inserido no DM o usuário criado anteriormente
         this.Usuarios.AdicionarUsuario(novoUsuario);
