@@ -70,9 +70,12 @@ export class UsuarioController{
         //criação do padrão de retorno
         var retorno = new RetornoUsuarioDTO('Alteração Efetuada',retornoAlteracao);        
         return retorno;       
-        
+    //DENTRO DO GET RETORNA ASSINATURA
+        var diferenca = this.objDatas.diferencaDias(usuariosListados.assinatura)
+        return{
+            validadeAssinatura: diferenca
     }
-
+    }
     @Get('/:ID')//criação de método GET, para retornar usuários filtrados pelo ID, onde é necessário passar o ID do usuário pelo url 
     async retornaUsuarioId(@Param('ID') ID:string){
         //aqui é feita a pesquisa do usuário, depois é criado mapeado os dados desse usuário para um retorno padrão (lista usuario DTO)
